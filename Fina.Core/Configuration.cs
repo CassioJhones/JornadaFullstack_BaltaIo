@@ -9,4 +9,9 @@ public static class Configuration
     /// Tamanho padrao das paginas
     /// </summary>
     public const int DefaultPageSize = 25;
+    /// <summary>
+    /// Status Code Padrao de Sucesso
+    /// </summary>
+    public const int DefaultStatusCode = 200;
+
 }
