@@ -1,6 +1,8 @@
 ﻿using Fina.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using static System.Net.Mime.MediaTypeNames;
+using System;
 
 namespace Fina.Api.Data.Mappings;
 
@@ -16,4 +18,7 @@ public class CategoryMapping : IEntityTypeConfiguration<Category>
         builder.Property(x => x.Description).IsRequired(false).HasColumnType("NVARCHAR").HasMaxLength(255);
         builder.Property(x => x.UserId).IsRequired(true).HasColumnType("VARCHAR").HasMaxLength(160);
     }
+
+    
+    
 }
