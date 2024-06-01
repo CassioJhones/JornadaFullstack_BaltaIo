@@ -13,16 +13,13 @@ const string ConnectionString =
     Application Intent = ReadWrite;
     Multi Subnet Failover=False";
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(
     x => x.UseSqlServer(ConnectionString));
-
 
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
 
-var app = builder.Build();
-
+WebApplication app = builder.Build();
 app.MapGet("/", () => "Hello World!");
-
 app.Run();
