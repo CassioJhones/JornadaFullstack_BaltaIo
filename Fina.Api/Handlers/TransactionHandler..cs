@@ -1,4 +1,4 @@
-﻿using Fina.Api.Common;
+﻿using Fina.Core.Common;
 using Fina.Api.Data;
 using Fina.Core.Handlers;
 using Fina.Core.Models;

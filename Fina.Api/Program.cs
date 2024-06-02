@@ -1,6 +1,7 @@
 using Fina.Api.Data;
 using Fina.Api.Handlers;
 using Fina.Core.Handlers;
+using Fina.Core.Requests.Categories;
 using Microsoft.EntityFrameworkCore;
 
 const string ConnectionString =
@@ -21,5 +22,7 @@ builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
 
 WebApplication app = builder.Build();
-app.MapGet("/", () => "Hello World!");
+
+app.MapGet("/", (GetCategoryByIdRequest request, ICategoryHandler handler)
+    => handler.GetByIdAsync(request));
 app.Run();

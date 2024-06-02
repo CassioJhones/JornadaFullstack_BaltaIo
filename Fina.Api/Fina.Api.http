@@ -1,0 +1,5 @@
+﻿@Fina.Api_HostAddress = https://localhost:7288
+
+GET {{Fina.Api_HostAddress}}/
+
+###

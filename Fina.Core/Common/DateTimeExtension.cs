@@ -1,4 +1,4 @@
-﻿namespace Fina.Api.Common;
+﻿namespace Fina.Core.Common;
 //Extension Methods
 public static class DateTimeExtension
 {
