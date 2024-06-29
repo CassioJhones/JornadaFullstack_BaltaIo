@@ -17,9 +17,10 @@ const string ConnectionString =
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(
     x => x.UseSqlServer(ConnectionString));
-
+//                               [   De   ]        [   Para  ]
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
+//                               [   Oque   ]         [   Como   ]
 
 WebApplication app = builder.Build();
 
