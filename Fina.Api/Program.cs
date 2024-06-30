@@ -1,29 +1,21 @@
-using Fina.Api.Data;
-using Fina.Api.Handlers;
-using Fina.Core.Handlers;
-using Fina.Core.Requests.Categories;
-using Microsoft.EntityFrameworkCore;
 
-const string ConnectionString =
-    @"Data Source=DESKTOP-QOQKFST;
-    Database=fina;
-    Integrated Security = True;
-    Connect Timeout = 15;
-    Encrypt=False;
-    Trust Server Certificate=False;
-    Application Intent = ReadWrite;
-    Multi Subnet Failover=False";
+using Fina.Api;
+using Fina.Api.Common.Api;
+using Fina.Api.Endpoints;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<AppDbContext>(
-    x => x.UseSqlServer(ConnectionString));
-//                               [   De   ]        [   Para  ]
-builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
-builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
-//                               [   Oque   ]         [   Como   ]
+
+builder.AddConfiguration();
+builder.AddDataContexts();
+builder.AddCrossOrigin();
+builder.AddDocumentation();
+builder.AddServices();
 
 WebApplication app = builder.Build();
+if(app.Environment.IsDevelopment())
+    app.ConfigureDevEnvironment();
 
-app.MapGet("/", (GetCategoryByIdRequest request, ICategoryHandler handler)
-    => handler.GetByIdAsync(request));
+app.UseCors(ApiConfiguration.CorsPolicyName);
+app.MapEndpoints();
+
 app.Run();
