@@ -13,7 +13,7 @@ public class CreateCategoryEndpoint : IEndpoint
         .WithName("Nome")
         .WithSummary("Cria nova categoria")
         .WithDescription("Cria nova categoria")
-        .WithOrder(1)
+        .WithOrder(1) 
         .Produces<Response<Category?>>();
 
     private static async Task<IResult> HandleAsync(ICategoryHandler handler, CreateCategoryRequest request)
