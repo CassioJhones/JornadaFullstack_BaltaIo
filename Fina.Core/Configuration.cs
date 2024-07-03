@@ -1,4 +1,6 @@
-﻿namespace Fina.Core;
+﻿using static System.Net.WebRequestMethods;
+
+namespace Fina.Core;
 public static class Configuration
 {
     /// <summary>
@@ -14,6 +16,6 @@ public static class Configuration
     /// </summary>
     public const int DefaultStatusCode = 200;
 
-    public static string BackendUrl { get; set; } = string.Empty;
-    public static string FrontendUrl { get; set; } = string.Empty;
+    public static string BackendUrl { get; set; } = "http://localhost:5073";
+    public static string FrontendUrl { get; set; } = "http://localhost:5123";
 }
