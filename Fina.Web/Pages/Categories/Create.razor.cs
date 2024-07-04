@@ -15,6 +15,7 @@ public partial class CreateCategoryPage : ComponentBase
     public CreateCategoryRequest InputModel { get; set; } = new();
 
     #endregion Properties
+
     #region Services
 
     [Inject]
@@ -25,6 +26,7 @@ public partial class CreateCategoryPage : ComponentBase
     public ISnackbar Snackbar { get; set; } = null!;
 
     #endregion Services
+
     #region Methods
 
     public async Task OnValidSubmitAsync()
